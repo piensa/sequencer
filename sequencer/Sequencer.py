@@ -89,7 +89,7 @@ class Sequencer(object):
 
                 # Get first element if it becomes a matrix.
                 # Workaround for ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
-                if len(metric.shape) > 0:
+                if hasattr(metric, 'shape') and len(metric.shape) > 0:
                     metric = metric.as_matrix()[0]
 
                 if metric > max_:
